@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Portofolio Video — Editor &amp; Videografer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;1,800;1,900&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f6f6f2; --bg2:#eceee7; --surface:#ffffff; --surface2:#eef0e8;
+    --ink:#14161a; --ink2:#3f444b; --muted:#6a7078;
+    --line:#dcded2;
+    --accent:#4c8f22; --accent-ink:#ffffff; --accent-soft:#e3f2d2;
+    --lime:#7ac74f;
+    --player:#0c0d0f;
+    --shadow:0 10px 30px rgba(20,22,26,.10);
+    --radius:18px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e0f11; --bg2:#131417; --surface:#17181c; --surface2:#1e2026;
+      --ink:#f2f3ee; --ink2:#c9ccc2; --muted:#9a9e94;
+      --line:#2a2c31;
+      --accent:#7ac74f; --accent-ink:#10130c; --accent-soft:#22331a;
+      --shadow:0 14px 34px rgba(0,0,0,.45);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img,video{display:block;max-width:100%}
+  a{color:inherit}
+  a.btn{min-height:44px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:"Montserrat",sans-serif;line-height:1.08;margin:0}
+  .display{font-weight:900;font-style:italic;letter-spacing:-.01em;text-transform:uppercase}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:34px 0 8px;background:linear-gradient(180deg,var(--bg2),var(--bg))}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+  .role{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border:1px solid var(--line);padding:8px 14px;border-radius:999px}
+  .role i{width:8px;height:8px;border-radius:50%;background:var(--lime);display:inline-block}
+  .hero h1{font-size:clamp(2.1rem,5.2vw,3.6rem);margin:18px 0 14px}
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero p.lead{font-size:1.08rem;color:var(--ink2);max-width:34rem;margin:0 0 22px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:1px solid transparent;cursor:pointer;font-size:.98rem}
+  .btn-wa{background:#22a35a;color:#fff}
+  .btn-wa:hover{background:#1d8f4f}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .hero-points{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;color:var(--muted);font-size:.9rem;font-weight:600}
+  .hero-points span::before{content:"✓";color:var(--accent);font-weight:800;margin-right:6px}
+  .hero-video{justify-self:center;width:min(340px,86vw)}
+  .phone{border-radius:28px;overflow:hidden;background:var(--player);box-shadow:var(--shadow);border:1px solid var(--line)}
+  .phone video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+  .hero-video figcaption{margin-top:12px;font-size:.88rem;color:var(--muted);text-align:center}
+  .hero-video figcaption strong{color:var(--ink)}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:52px 0}
+  .sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px}
+  .sec-head h2{font-size:clamp(1.55rem,3.4vw,2.2rem)}
+  .sec-head p{color:var(--muted);margin:8px 0 0;max-width:36rem}
+
+  /* ---------- WORK GRID ---------- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .card .media{background:#000;position:relative}
+  .card video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+  .card video.landscape{aspect-ratio:16/9}
+  .badge{position:absolute;top:12px;left:12px;background:rgba(10,11,12,.78);color:#fff;font-size:.74rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:6px 11px;border-radius:999px;pointer-events:none}
+  .card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .card-body h3{font-size:1.12rem;font-weight:800}
+  .card-body p{margin:0;color:var(--ink2);font-size:.94rem}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:6px}
+  .tags span{font-size:.76rem;font-weight:700;background:var(--surface2);border:1px solid var(--line);color:var(--ink2);padding:5px 10px;border-radius:999px}
+
+  /* ---------- SERVICES / PROCESS ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+  .panel h3{font-size:1.25rem;font-weight:800;margin-bottom:14px}
+  .svc{list-style:none;margin:0;padding:0;display:grid;gap:0}
+  .svc li{padding:13px 0;border-top:1px solid var(--line)}
+  .svc li:first-child{border-top:none;padding-top:2px}
+  .svc strong{display:block;font-size:1rem}
+  .svc span{color:var(--muted);font-size:.9rem}
+  .steps{list-style:none;counter-reset:step;margin:0;padding:0;display:grid;gap:0}
+  .steps li{counter-increment:step;padding:13px 0 13px 52px;position:relative;border-top:1px solid var(--line)}
+  .steps li:first-child{border-top:none;padding-top:2px}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:10px;width:36px;height:36px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-family:"Montserrat",sans-serif;font-weight:900;display:flex;align-items:center;justify-content:center}
+  .steps strong{display:block}
+  .steps span{color:var(--muted);font-size:.9rem}
+
+  /* ---------- CTA ---------- */
+  .cta{background:var(--player);color:#f2f3ee;border-radius:26px;padding:38px 30px;text-align:center;box-shadow:var(--shadow)}
+  .cta h2{font-size:clamp(1.6rem,4vw,2.4rem);color:#fff}
+  .cta p{color:#c9ccc2;max-width:32rem;margin:12px auto 24px}
+  .cta .btn-wa{font-size:1.05rem;padding:14px 28px}
+
+  footer{padding:30px 0 110px;color:var(--muted);font-size:.88rem;text-align:center}
+  .wa-float{position:fixed;right:16px;bottom:16px;z-index:40;display:inline-flex;align-items:center;gap:9px;background:#22a35a;color:#fff;font-weight:800;text-decoration:none;padding:14px 20px;border-radius:999px;box-shadow:0 12px 28px rgba(0,0,0,.32);font-size:.98rem}
+  .wa-float:hover{background:#1d8f4f}
+
+  @media (max-width:900px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-video{order:-1;width:min(300px,84vw)}
+    .split{grid-template-columns:1fr}
+  }
+  @media (max-width:580px){
+    .grid{grid-template-columns:1fr}
+    .card video{aspect-ratio:9/13}
+    .card video.landscape{aspect-ratio:16/9}
+    section{padding:40px 0}
+    .hero{padding-top:22px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO + FEATURED VIDEO ================= -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="role"><i></i> Editor Video &amp; Videografer — Freelance</span>
+      <h1 class="display">Video yang enak ditonton, <em>caption yang nempel di kepala.</em></h1>
+      <p class="lead">Saya membuat dan mengedit video untuk Reels, TikTok, dan Shorts — talking head, animasi pendek, konten sekolah, sampai dokumentasi event — lengkap dengan caption kata-per-kata, teks doa, dan animasi peta perjalanan. Tekan putar, lihat sendiri hasilnya.</p>
+      <div class="hero-cta">
+        <a class="btn btn-ghost" href="#karya">▶ &nbsp;Lihat Karya</a>
+        <a class="btn btn-wa" href="https://wa.me/6285715861154" target="_blank" rel="noopener">Chat WhatsApp — Tanya Harga</a>
+      </div>
+      <div class="hero-points">
+        <span>Caption kata-per-kata</span>
+        <span>Audio jernih standar platform</span>
+        <span>Animasi &amp; storytelling visual</span>
+        <span>Bisa shooting + edit</span>
+      </div>
+    </div>
+    <figure class="hero-video" style="margin:0">
+      <div class="phone">
+        <video controls playsinline preload="metadata" poster="animasi-kunang-kunang-cahaya-di-hutan-malam-thumb.jpg" src="animasi-kunang-kunang-cahaya-di-hutan-malam-video.mp4" data-player aria-label="Video animasi kunang-kunang di hutan malam karya Rizki Kurniawan"></video>
+      </div>
+      <figcaption><strong>Karya unggulan:</strong> Animasi “Kunang-Kunang — Cahaya di Hutan Malam”, film animasi pendek karya orisinal — 61 detik.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- ================= KARYA ================= -->
+<section id="karya">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="display">Karya Pilihan</h2>
+        <p>Semua video di bawah ini karya saya sendiri — silakan putar langsung di halaman ini.</p>
+      </div>
+    </div>
+
+    <div class="grid" id="workGrid">
+
+      <article class="card" data-kind="video">
+        <div class="media">
+          <video controls playsinline preload="none" poster="skit-tolong-menolong-rabbaanii-islamic-school-thumb.jpg" src="skit-tolong-menolong-rabbaanii-islamic-school-video.mp4" data-player aria-label="Video skit tolong-menolong untuk Rabbaanii Islamic School"></video>
+          <span class="badge">Video · 35 detik</span>
+        </div>
+        <div class="card-body">
+          <h3>Skit Tolong-Menolong — Rabbaanii Islamic School</h3>
+          <p>Skit pendek tentang indahnya saling membantu: seorang siswi menjatuhkan buku-bukunya di koridor sekolah, lalu teman-temannya sigap membantu memungutkan. Ditutup hadits “Allah senantiasa menolong hamba selama ia menolong saudaranya” (H.R. Muslim), logo sekolah, dan info PPDB — konten dakwah untuk klien sekolah.</p>
+          <div class="tags"><span>Konten dakwah</span><span>Edukasi Islami</span><span>Konten sekolah</span><span>Skit</span></div>
+        </div>
+      </article>
+
+      <article class="card" data-kind="video">
+        <div class="media">
+          <video controls playsinline preload="none" poster="karnaval-hut-ri-ke-79-warga-rw-011-thumb.jpg" src="karnaval-hut-ri-ke-79-warga-rw-011-video.mp4" data-player aria-label="Video dokumentasi karnaval HUT RI ke-79 Warga RW 011, 17 Agustus 2024"></video>
+          <span class="badge">Video · 49 detik</span>
+        </div>
+        <div class="card-body">
+          <h3>Karnaval HUT RI ke-79 — Warga RW 011</h3>
+          <p>Dokumentasi karnaval 17 Agustus 2024 bertema “Nusantara Baru Indonesia Maju”: pawai warga di jalan kampung dengan kostum merah-putih, kostum sayap Garuda putih yang mencolok, dan anak-anak yang ikut meramaikan — suasana Agustusan yang meriah dari awal sampai akhir.</p>
+          <div class="tags"><span>Videografi event</span><span>Dokumentasi acara</span><span>Karnaval</span><span>17 Agustus</span></div>
+        </div>
+      </article>
+
+      <article class="card" data-kind="video">
+        <div class="media">
+          <video controls playsinline preload="none" poster="belajar-ai-modal-handphone-buat-emak-emak-thumb.jpg" src="belajar-ai-modal-handphone-buat-emak-emak-video.mp4" data-player aria-label="Video talking head belajar AI modal handphone untuk emak-emak"></video>
+          <span class="badge">Video · 84 detik</span>
+        </div>
+        <div class="card-body">
+          <h3>Belajar AI Modal Handphone — Buat Emak-Emak</h3>
+          <p>Talking head soal belajar AI tanpa ribet: mikirnya simpel aja, modalnya cukup handphone, dan waktu luang bisa diubah jadi hal yang produktif lewat e-course dan komunitas — ditutup ajakan cek link di bio. Caption kata-per-kata mengikuti tiap ucapan dari awal sampai akhir.</p>
+          <div class="tags"><span>Talking head</span><span>Caption kata-per-kata</span><span>Konten AI</span><span>Edukasi</span></div>
+        </div>
+      </article>
+
+      <article class="card" data-kind="video">
+        <div class="media">
+          <video class="landscape" controls playsinline preload="none" poster="animasi-kunang-kunang-cahaya-di-hutan-malam-thumb.jpg" src="animasi-kunang-kunang-cahaya-di-hutan-malam-video.mp4" data-player aria-label="Video animasi kunang-kunang di hutan malam karya Rizki Kurniawan"></video>
+          <span class="badge">Video · 61 detik</span>
+        </div>
+        <div class="card-body">
+          <h3>Animasi Kunang-Kunang — Cahaya di Hutan Malam</h3>
+          <p>Film animasi pendek karya sendiri: kunang-kunang bercahaya hinggap di daun, bertemu kawanannya, seekor katak, dan anak kecil bersenter di hutan yang gelap. Bukti kemampuan di luar editing — animasi dan storytelling visual dari awal sampai akhir.</p>
+          <div class="tags"><span>Animasi</span><span>Storytelling visual</span><span>Film pendek</span><span>Karya orisinal</span></div>
+        </div>
+      </article>
+
+      <article class="card" data-kind="video">
+        <div class="media">
+          <video controls playsinline preload="none" poster="doa-ketika-turun-hujan-rabbaanii-islamic-school-thumb.jpg" src="doa-ketika-turun-hujan-rabbaanii-islamic-school-video.mp4" data-player aria-label="Video Doa Ketika Turun Hujan untuk Rabbaanii Islamic School"></video>
+          <span class="badge">Video · 36 detik</span>
+        </div>
+        <div class="card-body">
+          <h3>Doa Ketika Turun Hujan — Rabbaanii Islamic School</h3>
+          <p>Konten dakwah untuk sekolah: suasana hujan di lingkungan sekolah — pepohonan basah, anak berdoa di jendela, sampai lapangan basket yang tergenang — dipadukan teks doa lengkap dalam Arab, latin, dan terjemahan: “Allahumma shoyyiban nafi'an” (HR. Bukhari no. 1032).</p>
+          <div class="tags"><span>Konten dakwah</span><span>Edukasi Islami</span><span>Konten sekolah</span><span>Teks doa</span></div>
+        </div>
+      </article>
+
+      <article class="card" data-kind="video">
+        <div class="media">
+          <video controls playsinline preload="none" poster="family-gathering-rabbaanii-islamic-school-thumb.jpg" src="family-gathering-rabbaanii-islamic-school-video.mp4" data-player aria-label="Video dokumentasi event Family Gathering Rabbaanii Islamic School di Giri Tirta Kahuripan"></video>
+          <span class="badge">Video · 85 detik</span>
+        </div>
+        <div class="card-body">
+          <h3>Family Gathering — Rabbaanii Islamic School</h3>
+          <p>Dokumentasi event sekolah dari awal sampai akhir: perjalanan bus, animasi peta menuju Giri Tirta Kahuripan, games outdoor, main di sungai, sampai pembagian hadiah — ditutup logo sekolah dan info SPMB. Contoh karya videografi event yang runtut dan enak diikuti.</p>
+          <div class="tags"><span>Videografi event</span><span>Dokumentasi acara</span><span>Animasi peta</span><span>Outdoor</span></div>
+        </div>
+      </article>
+
+      <article class="card" data-kind="video">
+        <div class="media">
+          <video controls playsinline preload="none" poster="gila-ai-udah-canggih-banget-thumb.jpg" src="gila-ai-udah-canggih-banget-video.mp4" data-player aria-label="Video talking head Gila, AI Udah Canggih Banget tentang tool edit video Full AI"></video>
+          <span class="badge">Video · 26 detik</span>
+        </div>
+        <div class="card-body">
+          <h3>“Gila, AI Udah Canggih Banget”</h3>
+          <p>Talking head soal tool edit video Full AI yang lagi ramai: caption besar bergaya kinetik mengikuti tiap kata, ditutup pertanyaan buat penonton — “Editor bakal hilang atau malah mempermudah?”</p>
+          <div class="tags"><span>Caption kinetik</span><span>Talking head</span><span>Konten AI</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= LAYANAN + ALUR ================= -->
+<section style="padding-top:6px">
+  <div class="wrap split">
+    <div class="panel">
+      <h3>Yang Bisa Saya Kerjakan</h3>
+      <ul class="svc">
+        <li><strong>Edit Talking Head</strong><span>Caption kata-per-kata, potong jeda &amp; bagian mati, zoom penekanan, SFX.</span></li>
+        <li><strong>Video Reels / TikTok / Shorts</strong><span>Konten promo, edukasi, dan hiburan format vertikal siap posting.</span></li>
+        <li><strong>Shooting Video</strong><span>Pengambilan gambar untuk konten usaha, profil, dan kegiatan.</span></li>
+        <li><strong>Animasi Pendek</strong><span>Film animasi pendek dengan storytelling visual, seperti animasi kunang-kunang di atas.</span></li>
+        <li><strong>Paket Konten Rutin</strong><span>Shooting, edit, dan bantu kelola postingan untuk usaha &amp; kreator.</span></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Cara Kerjanya</h3>
+      <ol class="steps">
+        <li><strong>Chat WhatsApp</strong><span>Ceritakan kebutuhan videonya dan kirim contoh gaya yang disukai.</span></li>
+        <li><strong>Kirim Bahan / Jadwal Shooting</strong><span>Kirim video mentah, atau sepakati jadwal pengambilan gambar.</span></li>
+        <li><strong>Proses Edit</strong><span>Cutting, caption, grafis, efek, dan penataan audio dikerjakan.</span></li>
+        <li><strong>Terima &amp; Revisi</strong><span>Hasil dikirim untuk dicek; revisi sesuai kesepakatan di awal.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section style="padding-top:6px">
+  <div class="wrap">
+    <div class="cta">
+      <h2 class="display">Punya bahan video? Biar saya yang bikin jadi konten.</h2>
+      <p>Kirim video mentah Anda, atau ceritakan dulu idenya — tanya-tanya dan tanya harga langsung lewat WhatsApp, tanpa ribet.</p>
+      <a class="btn btn-wa" href="https://wa.me/6285715861154" target="_blank" rel="noopener">Chat WhatsApp Sekarang</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Portofolio editor video &amp; videografer freelance — Cikarang · Bekasi. Semua video &amp; gambar di halaman ini adalah hasil karya asli.</div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/6285715861154" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.9-4.45 9.9-9.91C21.94 6.45 17.5 2 12.04 2zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29z"/></svg>
+  WhatsApp
+</a>
+
+<script>
+(function(){
+  // Pause other videos when one plays
+  var players = Array.prototype.slice.call(document.querySelectorAll('video[data-player]'));
+  players.forEach(function(v){
+    v.addEventListener('play', function(){
+      players.forEach(function(o){ if(o !== v && !o.paused){ o.pause(); } });
+    });
+  });
+})();
+</script>
+</body>
+</html>
